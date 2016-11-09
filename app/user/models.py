@@ -55,3 +55,26 @@ class User(Model):
         if User.query.filter_by(email=self.email).first():
             raise UserExists
         return super(User, self).create()
+
+
+
+def special_filter(qs, args):
+    if args.get('since_id'):
+        try:
+            qs = qs.filter(User.id >= int(args.get('since_id')))
+        except ValueError:
+            raise RequestNotValid
+
+    if args.get('order') in ['desc', 'asc']:
+        if args.get('order') == 'asc':
+            qs = qs.order_by(User.name)
+        else:
+            qs = qs.order_by(db.desc(User.name))
+
+    if args.get('limit'):
+        try:
+            qs = qs.limit(int(args.get('limit')))
+        except ValueError:
+            raise RequestNotValid
+
+    return qs
