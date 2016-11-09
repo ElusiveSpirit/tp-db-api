@@ -20,6 +20,12 @@ class UserForm(FlaskForm):
     isAnonymous = BooleanField('isAnonymous', false_values=[False])
 
 
+class UpdateUserForm(FlaskForm):
+    user = TextField('email', validators=[Required()])
+    name = TextField('name', validators=[Required()])
+    about = TextAreaField('about', validators=[Required()])
+
+
 class AnonymousUserForm(FlaskForm):
     email = TextField('email', validators=[Required()])
     username = TextField('username')

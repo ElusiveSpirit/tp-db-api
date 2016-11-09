@@ -5,7 +5,7 @@ from app.utils import response
 from app.handlers import IncorrectRequest, RequestNotValid
 
 from .models import User, special_filter
-from .forms import get_user_form, FollowForm
+from .forms import get_user_form, FollowForm, UpdateUserForm
 
 
 @app.route('/db/api/user/create/', methods=['POST'])
@@ -26,18 +26,17 @@ def user_detail():
     return response(user.serialize())
 
 
-@app.route('/db/api/user/listFollowers/')
-def user_followers():
-    user = User.query.filter_by(email=request.args.get('user')).first_or_404()
-    qs = special_filter(user.followers, request.args)
-    return response([u.serialize() for u in qs.all()])
+@app.route('/db/api/user/updateProfile/', methods=['POST'])
+def user_update():
+    form = UpdateUserForm(data=g.data)
+    if form.validate():
+        user = User.query.filter_by(email=form.user.data).first_or_404()
+        user.name = form.name.data
+        user.about = form.about.data
+        user.save()
+        return response(user.serialize())
 
-
-@app.route('/db/api/user/listFollowing/')
-def user_following():
-    user = User.query.filter_by(email=request.args.get('user')).first_or_404()
-    qs = special_filter(user.following, request.args)
-    return response([u.serialize() for u in qs.all()])
+    raise IncorrectRequest
 
 
 @app.route('/db/api/user/follow/', methods=['POST'])
@@ -66,3 +65,17 @@ def user_unfollow():
         return response(user.serialize())
 
     raise IncorrectRequest
+
+
+@app.route('/db/api/user/listFollowers/')
+def user_followers():
+    user = User.query.filter_by(email=request.args.get('user')).first_or_404()
+    qs = special_filter(user.followers, request.args)
+    return response([u.serialize() for u in qs.all()])
+
+
+@app.route('/db/api/user/listFollowing/')
+def user_following():
+    user = User.query.filter_by(email=request.args.get('user')).first_or_404()
+    qs = special_filter(user.following, request.args)
+    return response([u.serialize() for u in qs.all()])
