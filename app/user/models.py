@@ -1,4 +1,6 @@
 from app import db
+from app.utils import Model
+from app.handlers import UserExists
 
 
 user_followings = db.Table('user_followings',
@@ -10,7 +12,7 @@ user_followings = db.Table('user_followings',
 )
 
 
-class User(db.Model):
+class User(Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True, index=True, nullable=False)
     username = db.Column(db.String(40))
@@ -20,7 +22,9 @@ class User(db.Model):
     isAnonymous = db.Column(db.Boolean, default=False)
 
     following = db.relationship('User', secondary=user_followings,
-        backref=db.backref('pages', lazy='dynamic'))
+        primaryjoin=id==user_followings.c.follower_id,
+        secondaryjoin=id==user_followings.c.following_id,
+        backref=db.backref('pages', lazy='dynamic'), foreign_keys=[id])
 
     def __init__(self, email, username, name, about, isAnonymous=False):
         self.email = email
@@ -31,3 +35,8 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.email
+
+    def save(self, commit=True):
+        if User.query.filter_by(email=self.email).first():
+            raise UserExists
+        return super(User, self).save(commit=True)    

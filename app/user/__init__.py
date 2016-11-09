@@ -1,1 +1,1 @@
-from app.user import views, models
+from . import views, models

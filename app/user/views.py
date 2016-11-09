@@ -1,14 +1,20 @@
-from flask import jsonify
+from flask import jsonify, g
 import json
-from app import app
+from app import app, db
 from app.utils import response
+from app.handlers import IncorrectRequest
+
+from .models import User
+from .forms import get_user_form
 
 
-@app.route('/db/api/user/create/')
+@app.route('/db/api/user/create/', methods=['POST'])
 def user_create():
-    # sreturn json.dumps({'test': 'hello'})
-    return response({
-        'test': [
-            1, 2, 3
-        ]
-    })
+    form = get_user_form(g.data)
+
+    if form.validate():
+        user = User(**form.data)
+        user.save()
+        return response(form.data)
+
+    raise IncorrectRequest
