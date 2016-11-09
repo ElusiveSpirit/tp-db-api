@@ -31,11 +31,23 @@ def user_follow():
     form = FollowForm(data=g.data)
 
     if form.validate():
-        print(form.follower.data)
         user = User.query.filter_by(email=form.follower.data).first_or_404()
-        print(form.followee.data)
         user_followee = User.query.filter_by(email=form.followee.data).first_or_404()
         user.following.append(user_followee)
+        user.save()
+        return response(user.serialize())
+
+    raise IncorrectRequest
+
+
+@app.route('/db/api/user/unfollow/', methods=['POST'])
+def user_unfollow():
+    form = FollowForm(data=g.data)
+
+    if form.validate():
+        user = User.query.filter_by(email=form.follower.data).first_or_404()
+        user_followee = User.query.filter_by(email=form.followee.data).first_or_404()
+        user.following.remove(user_followee)
         user.save()
         return response(user.serialize())
 
