@@ -3,12 +3,12 @@ from app.utils import Model
 from app.handlers import UserExists
 
 
-user_followings = db.Table('user_followings',
+user_followings = db.Table('user_followings', db.metadata,
     # Кто
-    db.Column('follower_id', db.Integer, db.ForeignKey('user.id'), nullable=False),
+    db.Column('follower_id', db.Integer, db.ForeignKey('user.id'), nullable=False, primary_key=True),
     # Кого
-    db.Column('following_id', db.Integer, db.ForeignKey('user.id'), nullable=False),
-    db.Index('ix_user_followings', 'follower_id', 'following_id', unique=True)
+    db.Column('following_id', db.Integer, db.ForeignKey('user.id'), nullable=False, primary_key=True),
+    db.Index('ix_user_followings', 'follower_id', 'following_id', unique=True),
 )
 
 
@@ -24,7 +24,7 @@ class User(Model):
     following = db.relationship('User', secondary=user_followings,
         primaryjoin=id==user_followings.c.follower_id,
         secondaryjoin=id==user_followings.c.following_id,
-        backref=db.backref('pages', lazy='dynamic'), foreign_keys=[id])
+        backref=db.backref('followers', lazy='dynamic'))
 
     def __init__(self, email, username, name, about, isAnonymous=False):
         self.email = email
@@ -36,7 +36,21 @@ class User(Model):
     def __repr__(self):
         return '<User %r>' % self.email
 
-    def save(self, commit=True):
+    def serialize(self, less=False):
+        data = {
+            'id': self.id,
+            'email': self.email,
+            'username': self.username,
+            'name': self.name,
+            'about': self.about,
+            'isAnonymous': self.isAnonymous
+        }
+        if not less:
+            data['followers'] = [f.email for f in self.followers]
+            data['following'] = [f.email for f in self.following]
+        return data
+
+    def create(self):
         if User.query.filter_by(email=self.email).first():
             raise UserExists
-        return super(User, self).save(commit=True)    
+        return super(User, self).create()

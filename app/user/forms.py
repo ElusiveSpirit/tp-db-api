@@ -26,3 +26,8 @@ class AnonymousUserForm(FlaskForm):
     name = TextField('name')
     about = TextAreaField('about')
     isAnonymous = BooleanField('isAnonymous', false_values=[False])
+
+
+class FollowForm(FlaskForm):
+    follower = TextField('follower', validators=[Required()])
+    followee = TextField('followee', validators=[Required()])

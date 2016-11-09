@@ -16,6 +16,9 @@ def response(data):
 class Model(db.Model):
     __abstract__ = True
 
+    def create(self):
+        self.save()
+
     def save(self, commit=True):
         db.session.add(self)
         if commit:
