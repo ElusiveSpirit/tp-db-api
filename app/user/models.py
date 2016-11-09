@@ -1,6 +1,7 @@
 from app import db
 from app.utils import Model
 from app.handlers import UserExists
+from sqlalchemy.orm import aliased
 
 
 user_followings = db.Table('user_followings', db.metadata,
@@ -24,7 +25,7 @@ class User(Model):
     following = db.relationship('User', secondary=user_followings,
         primaryjoin=id==user_followings.c.follower_id,
         secondaryjoin=id==user_followings.c.following_id,
-        backref=db.backref('followers', lazy='dynamic'))
+        backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
 
     def __init__(self, email, username, name, about, isAnonymous=False):
         self.email = email
