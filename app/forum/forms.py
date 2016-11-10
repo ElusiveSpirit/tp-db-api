@@ -37,4 +37,4 @@ class ForumDetailForm(FlaskForm):
     def get_forum_data(self):
         forum = Forum.query.filter_by(
             short_name=self.forum.data).first_or_404()
-        return forum.serialize(less=(self.related.data != 'user'))
+        return forum.serialize(related=[self.related.data])

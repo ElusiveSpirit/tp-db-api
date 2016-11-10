@@ -8,6 +8,7 @@ from app import handlers
 # from config import MODULES
 # map(__import__, ['app.%s' % m for m in MODULES])
 import app.common
+import app.thread
 import app.forum
 import app.user
 

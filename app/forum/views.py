@@ -11,7 +11,7 @@ def forum_create():
     form = ForumForm(data=g.data)
     if form.validate():
         forum = form.save()
-        return response(forum.serialize(less=True))
+        return response(forum.serialize())
     raise IncorrectRequest
 
 

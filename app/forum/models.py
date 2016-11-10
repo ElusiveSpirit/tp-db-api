@@ -8,6 +8,9 @@ class Forum(Model):
     short_name = db.Column(db.String(60), unique=True, index=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
+    # backred
+    threads = db.relationship('Thread', backref='forum',  lazy='dynamic')
+
     def __init__(self, name, short_name, user):
         self.name = name
         self.short_name = short_name
@@ -16,14 +19,10 @@ class Forum(Model):
     def __repr__(self):
         return '<Forum %s>' % self.short_name
 
-    def serialize(self, less=False):
-        user = self.user
-        data = {
+    def serialize(self, related=[]):
+        return {
             'id': self.id,
             'name': self.name,
             'short_name': self.short_name,
-            'user': user.email
+            'user': self.user.serialize() if 'user' in related else self.user.email
         }
-        if not less:
-            data['user'] = user.serialize()
-        return data

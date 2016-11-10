@@ -26,7 +26,9 @@ class User(Model):
         secondaryjoin=id==user_followings.c.following_id,
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
 
+    # backrefs
     forums = db.relationship('Forum', backref='user',  lazy='dynamic')
+    threads = db.relationship('Thread', backref='user',  lazy='dynamic')
 
     def __init__(self, email, username, name, about, isAnonymous=False):
         self.email = email
