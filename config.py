@@ -2,6 +2,12 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+MODULES = [
+    'common',
+    'user',
+    'forum',
+]
+
 WTF_CSRF_ENABLED = False
 
 # DB options

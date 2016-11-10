@@ -22,8 +22,7 @@ def user_create():
 
 @app.route('/db/api/user/details/')
 def user_detail():
-    user = User.query.filter_by(email=request.args.get('user')).first_or_404()
-    return response(user.serialize())
+    return response(g.user.serialize())
 
 
 @app.route('/db/api/user/updateProfile/', methods=['POST'])
@@ -69,13 +68,11 @@ def user_unfollow():
 
 @app.route('/db/api/user/listFollowers/')
 def user_followers():
-    user = User.query.filter_by(email=request.args.get('user')).first_or_404()
-    qs = special_filter(user.followers, request.args)
+    qs = special_filter(g.user.followers, request.args)
     return response([u.serialize() for u in qs.all()])
 
 
 @app.route('/db/api/user/listFollowing/')
 def user_following():
-    user = User.query.filter_by(email=request.args.get('user')).first_or_404()
-    qs = special_filter(user.following, request.args)
+    qs = special_filter(g.user.following, request.args)
     return response([u.serialize() for u in qs.all()])
