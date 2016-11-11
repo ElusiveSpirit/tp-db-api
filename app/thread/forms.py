@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from sqlalchemy import or_
-from wtforms import TextField, BooleanField, IntegerField
+from wtforms import TextField, BooleanField, IntegerField, FieldList
 from wtforms.validators import Required
 from app.handlers import IncorrectRequest
 
@@ -13,8 +13,8 @@ class ThreadForm(FlaskForm):
     title = TextField(validators=[Required()])
     message = TextField(validators=[Required()])
     slug = TextField(validators=[Required()])
-    isClosed = BooleanField(validators=[Required()])
-    isDeleted = BooleanField()
+    isClosed = BooleanField(false_values=[False])
+    isDeleted = BooleanField(false_values=[False])
     date = TextField(validators=[Required()])
     user = TextField(validators=[Required()])
     forum = TextField(validators=[Required()])
@@ -38,3 +38,30 @@ class ThreadForm(FlaskForm):
         )
         thread.save()
         return thread
+
+
+class ThreadDetailForm(FlaskForm):
+    thread = IntegerField(validators=[Required()])
+    related = FieldList(TextField(), max_entries=2)
+
+    def get_thread_data(self):
+        thread = Thread.query.get_or_404(self.thread.data)
+        return thread.serialize(self.related.data)
+
+
+class ThreadCloseForm(FlaskForm):
+    thread = IntegerField(validators=[Required()])
+
+    def close(self):
+        thread = Thread.query.get_or_404(self.thread.data)
+        thread.isClosed = True
+        thread.save()
+
+
+class ThreadRemoveForm(FlaskForm):
+    thread = IntegerField(validators=[Required()])
+
+    def remove(self):
+        thread = Thread.query.get_or_404(self.thread.data)
+        thread.isDeleted = True
+        thread.save()
