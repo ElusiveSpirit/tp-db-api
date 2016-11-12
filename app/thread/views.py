@@ -3,7 +3,8 @@ from app import app
 from app.handlers import IncorrectRequest
 from app.utils import response
 
-from .forms import ThreadForm, ThreadCloseForm, ThreadRemoveForm, ThreadDetailForm
+from .forms import (ThreadForm, ThreadCloseForm, ThreadRemoveForm, ThreadDetailForm,
+                    ThreadListForm)
 
 
 @app.route('/db/api/thread/create/', methods=['POST'])
@@ -20,6 +21,15 @@ def thread_detail():
     form = ThreadDetailForm(data=request.args.to_dict(flat=False))
     if form.validate():
         return response(form.get_thread_data())
+    raise IncorrectRequest
+
+
+@app.route('/db/api/thread/list/')
+def thread_list():
+    form = ThreadListForm(data=request.args.to_dict(flat=True))
+    if form.validate():
+        return response(form.get_thread_list_data())
+    print(form.errors)
     raise IncorrectRequest
 
 

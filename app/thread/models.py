@@ -2,6 +2,7 @@ from datetime import datetime
 
 from app import db
 from app.utils import Model
+from app.handlers import IncorrectRequest
 from config import DATETIME
 
 
@@ -45,3 +46,25 @@ class Thread(Model):
 
     def __repr__(self):
         return '<Thread %s>' % self.slug
+
+
+def magic_filter(qs, options={}):
+    if options.get('since'):
+        try:
+            date = datetime.strptime(options.get('since'), DATETIME)
+            qs = qs.filter(Thread.date >= date)
+        except ValueError:
+            raise RequestNotValid
+
+    if options.get('order') == 'asc':
+        qs = qs.order_by(Thread.date)
+    else:
+        qs = qs.order_by(db.desc(Thread.date))
+
+    if options.get('limit'):
+        try:
+            qs = qs.limit(int(options.get('limit')))
+        except ValueError:
+            raise IncorrectRequest
+
+    return qs

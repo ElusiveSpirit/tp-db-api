@@ -1,10 +1,10 @@
 from flask_wtf import FlaskForm
 from sqlalchemy import or_
-from wtforms import TextField, BooleanField, IntegerField, FieldList
-from wtforms.validators import Required
+from wtforms import TextField, BooleanField, IntegerField, FieldList, ValidationError
+from wtforms.validators import Required, AnyOf
 from app.handlers import IncorrectRequest
 
-from .models import Thread
+from .models import Thread, magic_filter
 from app.user.models import User
 from app.forum.models import Forum
 
@@ -38,6 +38,29 @@ class ThreadForm(FlaskForm):
         )
         thread.save()
         return thread
+
+
+class ThreadListForm(FlaskForm):
+    user = TextField()
+    forum = TextField()
+    since = TextField()
+    limit = IntegerField()
+    order = TextField(validators=[AnyOf(['asc', 'desc', None])])
+
+    def validate_user(self, field):
+        # if both with data or not
+        if (field.data and self.forum.data) or (not field.data and not self.forum.data):
+            raise ValidationError
+
+    def get_thread_list_data(self):
+        if self.user.data:
+            user = User.query.filter_by(email=self.user.data).first_or_404()
+            thread_list_qs = user.threads
+        else:
+            forum = Forum.query.filter_by(short_name=self.forum.data).first_or_404()
+            thread_list_qs = forum.threads
+
+        return [t.serialize() for t in (magic_filter(thread_list_qs, self.data)).all()]
 
 
 class ThreadDetailForm(FlaskForm):
