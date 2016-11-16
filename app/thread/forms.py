@@ -72,12 +72,51 @@ class ThreadDetailForm(FlaskForm):
         return thread.serialize(self.related.data)
 
 
+class ThreadOpenForm(FlaskForm):
+    thread = IntegerField(validators=[Required()])
+
+    def open(self):
+        thread = Thread.query.get_or_404(self.thread.data)
+        thread.isClosed = False
+        thread.save()
+
+
 class ThreadCloseForm(FlaskForm):
     thread = IntegerField(validators=[Required()])
 
     def close(self):
         thread = Thread.query.get_or_404(self.thread.data)
         thread.isClosed = True
+        thread.save()
+
+
+class ThreadSubscribeForm(FlaskForm):
+    thread = IntegerField(validators=[Required()])
+    user = TextField(validators=[Required()])
+
+    def subscribe(self):
+        user = User.query.filter_by(user=self.user.data).first_or_404()
+        thread = Thread.query.get_or_404(self.thread.data)
+        if user.subscribing.query.filter(thread.id).first():
+            raise IncorrectRequest
+        user.subscribing.append(thread)
+        user.save()
+
+    def unsubscribe(self):
+        user = User.query.filter_by(user=self.user.data).first_or_404()
+        thread = Thread.query.get_or_404(self.thread.data)
+        if not user.subscribing.query.filter(thread.id).first():
+            raise IncorrectRequest
+        user.subscribing.remove(thread)
+        user.save()
+
+
+class ThreadRestoreForm(FlaskForm):
+    thread = IntegerField(validators=[Required()])
+
+    def restore(self):
+        thread = Thread.query.get_or_404(self.thread.data)
+        thread.isDeleted = False
         thread.save()
 
 

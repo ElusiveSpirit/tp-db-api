@@ -11,6 +11,13 @@ user_followings = db.Table('user_followings', db.metadata,
     db.Index('ix_user_followings', 'follower_id', 'following_id', unique=True),
 )
 
+user_subscribings = db.Table('user_subscribings', db.metadata,
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id'), nullable=False, primary_key=True),
+    db.Column('thread_id', db.Integer, db.ForeignKey('thread.id'), nullable=False, primary_key=True),
+    db.Index('ix_user_subscribings', 'user_id', 'thread_id', unique=True),
+    db.Index('ix_user_subscribings_back', 'thread_id', 'user_id', unique=True),
+)
+
 
 class User(Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -25,6 +32,11 @@ class User(Model):
         primaryjoin=id==user_followings.c.follower_id,
         secondaryjoin=id==user_followings.c.following_id,
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
+
+    subscribing = db.relationship('Thread', secondary=user_subscribings,
+        # primaryjoin=id==.user_followings.c.user_id,
+        # secondaryjoin=id==.user_followings.c.thread_id,
+        backref=db.backref('subscribers', lazy='dynamic'), lazy='dynamic')
 
     # backrefs
     forums = db.relationship('Forum', backref='user',  lazy='dynamic')
