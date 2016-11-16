@@ -4,7 +4,8 @@ from app.handlers import IncorrectRequest
 from app.utils import response, form_valid
 
 from .forms import (ThreadForm, ThreadCloseForm, ThreadRemoveForm, ThreadDetailForm,
-                    ThreadListForm, ThreadRestoreForm, ThreadOpenForm, ThreadSubscribeForm)
+                    ThreadListForm, ThreadRestoreForm, ThreadOpenForm, ThreadSubscribeForm
+                    ThreadVoteForm)
 
 
 @app.route('/db/api/thread/create/', methods=['POST'])
@@ -25,8 +26,13 @@ def thread_list():
     form = ThreadListForm(data=request.args.to_dict(flat=True))
     if form.validate():
         return response(form.get_thread_list_data())
-    print(form.errors)
     raise IncorrectRequest
+
+
+@app.route('/db/api/thread/vote/', methods=['POST'])
+@form_valid(ThreadVoteForm)
+def thread_vote(form):
+    return response(form.vote())
 
 
 @app.route('/db/api/thread/open/', methods=['POST'])

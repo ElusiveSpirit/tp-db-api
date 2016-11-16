@@ -63,6 +63,19 @@ class ThreadListForm(FlaskForm):
         return [t.serialize() for t in (magic_filter(thread_list_qs, self.data)).all()]
 
 
+class ThreadVoteForm(FlaskForm):
+    thread = IntegerField(validators=[Required()])
+    vote = IntegerField(validators=[AnyOf([1, -1])])
+
+    def vote(self):
+        thread = Thread.query.get_or_404(self.thread.data)
+        if self.vote.data == 1:
+            thread.likes += 1
+        else:
+            thread.dislikes += 1
+        return thread.serialize()
+
+
 class ThreadDetailForm(FlaskForm):
     thread = IntegerField(validators=[Required()])
     related = FieldList(TextField(), max_entries=2)

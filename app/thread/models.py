@@ -11,6 +11,8 @@ class Thread(Model):
     title = db.Column(db.String(120), nullable=False)
     message = db.Column(db.Text(), nullable=False)
     slug = db.Column(db.String(40), unique=True, nullable=False)
+    dislikes = db.Column(db.Integer(), default=0)
+    likes = db.Column(db.Integer(), default=0)
 
     isClosed = db.Column(db.Boolean(), nullable=False)
     isDeleted = db.Column(db.Boolean(), nullable=False)
@@ -39,6 +41,8 @@ class Thread(Model):
             'isClosed': self.isClosed,
             'isDeleted': self.isDeleted,
             'date': self.date.strftime(DATETIME),
+            'likes': self.likes,
+            'dislikes': self.dislikes,
             'user': self.user.serialize() if 'user' in related else self.user.email,
             'forum': self.forum.serialize() if 'forum' in related else self.forum.short_name,
         }
