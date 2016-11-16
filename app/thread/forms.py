@@ -76,6 +76,19 @@ class ThreadVoteForm(FlaskForm):
         return thread.serialize()
 
 
+class ThreadUpdateForm(FlaskForm):
+    thread = IntegerField(validators=[Required()])
+    message = TextField(validators=[Required()])
+    slug = TextField(validators=[Required()])
+
+    def update(self):
+        thread = Thread.query.get_or_404(self.thread.data)
+        thread.message = self.message.data
+        thread.slug = self.slug.data
+        thread.save()
+        return thread.serialize()
+
+
 class ThreadDetailForm(FlaskForm):
     thread = IntegerField(validators=[Required()])
     related = FieldList(TextField(), max_entries=2)

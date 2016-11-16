@@ -4,7 +4,7 @@ from app.handlers import IncorrectRequest
 from app.utils import response, form_valid
 
 from .forms import (ThreadForm, ThreadCloseForm, ThreadRemoveForm, ThreadDetailForm,
-                    ThreadListForm, ThreadRestoreForm, ThreadOpenForm, ThreadSubscribeForm
+                    ThreadListForm, ThreadRestoreForm, ThreadOpenForm, ThreadSubscribeForm,
                     ThreadVoteForm)
 
 
