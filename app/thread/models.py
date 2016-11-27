@@ -19,8 +19,8 @@ class Thread(Model):
 
     date = db.Column(db.DateTime(), nullable=False)
 
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    forum_id = db.Column(db.Integer, db.ForeignKey('forum.id'), nullable=False)
+    user_id = db.Column(db.Integer(), db.ForeignKey('user.id'), nullable=False)
+    forum_id = db.Column(db.Integer(), db.ForeignKey('forum.id'), nullable=False)
 
     def __init__(self, user, forum, title, message, slug, date, isClosed, isDeleted):
         self.title = title
@@ -43,10 +43,10 @@ class Thread(Model):
             'date': self.date.strftime(DATETIME),
             'likes': self.likes,
             'dislikes': self.dislikes,
+            'points': self.likes - self.dislikes,
             'user': self.user.serialize() if 'user' in related else self.user.email,
             'forum': self.forum.serialize() if 'forum' in related else self.forum.short_name,
         }
-
 
     def __repr__(self):
         return '<Thread %s>' % self.slug

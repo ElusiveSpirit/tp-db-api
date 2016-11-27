@@ -8,7 +8,7 @@ class Forum(Model):
     short_name = db.Column(db.String(60), unique=True, index=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
-    # backred
+    # backref
     threads = db.relationship('Thread', backref='forum',  lazy='dynamic')
 
     def __init__(self, name, short_name, user):
