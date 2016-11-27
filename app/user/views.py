@@ -3,9 +3,10 @@ import json
 from app import app, db
 from app.utils import response
 from app.handlers import IncorrectRequest, RequestNotValid
+from app.utils import form_valid
 
 from .models import User, special_filter
-from .forms import get_user_form, FollowForm, UpdateUserForm
+from .forms import get_user_form, FollowForm, UpdateUserForm, UserPostListForm
 
 
 @app.route('/db/api/user/create/', methods=['POST'])
@@ -64,6 +65,12 @@ def user_unfollow():
         return response(user.serialize())
 
     raise IncorrectRequest
+
+
+@app.route('/db/api/user/listPosts')
+@form_valid(UserPostListForm)
+def user_posts():
+    return response(form.get_post_list_data())
 
 
 @app.route('/db/api/user/listFollowers/')

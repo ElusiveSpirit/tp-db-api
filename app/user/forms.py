@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import TextField, BooleanField, TextAreaField, BooleanField
-from wtforms.validators import Required, Length
+from wtforms import TextField, BooleanField, TextAreaField, BooleanField, IntegerField
+from wtforms.validators import Required, Length, AnyOf
+
+from app.thread.models import magic_filter
 
 
 def get_user_form(data):
@@ -35,3 +37,17 @@ class AnonymousUserForm(FlaskForm):
 class FollowForm(FlaskForm):
     follower = TextField('follower', validators=[Required()])
     followee = TextField('followee', validators=[Required()])
+
+
+class UserPostListForm(FlaskForm):
+    user = TextField(validators=[Required()])
+    since = TextField()
+    limit = IntegerField()
+    order = TextField(validators=[AnyOf(['asc', 'desc', None])])
+
+    def get_post_list_data(self):
+        user = User.query.filter_by(email=self.user.data).first_or_404()
+        post_list_qs = user.posts
+
+        return [t.serialize() for t in (magic_filter(post_list_qs, self.data)).all()]
+

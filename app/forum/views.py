@@ -1,9 +1,9 @@
 from flask import g, request
 from app import app
 from app.handlers import IncorrectRequest, RequestNotValid
-from app.utils import response
+from app.utils import response, form_valid
 
-from .forms import ForumForm, ForumDetailForm
+from .forms import ForumForm, ForumDetailForm, ForumUserListForm, ForumThreadListForm
 
 
 @app.route('/db/api/forum/create/', methods=['POST'])
@@ -21,3 +21,15 @@ def forum_detail():
     if form.validate():
         return response(form.get_forum_data())
     raise IncorrectRequest
+
+
+@app.route('/db/api/forum/listUsers')
+@form_valid(ForumUserListForm, 'GET')
+def forum_users(form):
+    return response(form.get_user_list_data())
+
+
+@app.route('/db/api/forum/listThreads')
+@form_valid(ForumThreadListForm, 'GET')
+def forum_threads(form):
+    return response(form.get_thread_list_data())
