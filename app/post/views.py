@@ -31,7 +31,7 @@ def post_remove(form):
 
 @app.route('/db/api/post/restore/', methods=['POST'])
 @form_valid(PostForm)
-def post_remove(form):
+def post_restore(form):
     form.restore()
     return response({
         'post': form.post_obj.id
