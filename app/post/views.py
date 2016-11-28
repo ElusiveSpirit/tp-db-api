@@ -41,7 +41,7 @@ def post_restore(form):
 @app.route('/db/api/post/vote/', methods=['POST'])
 @form_valid(PostVoteForm)
 def post_vote(form):
-    form.vote()
+    form.update_vote()
     return response(form.post_obj.serialize())
 
 
@@ -53,7 +53,7 @@ def post_update(form):
 
 
 @app.route('/db/api/post/list/')
-@form_valid(PostListForm)
+@form_valid(PostListForm, 'GET', True)
 def post_list(form):
     return response(form.get_post_list_data())
 

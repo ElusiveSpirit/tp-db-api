@@ -7,7 +7,7 @@ from app.thread.models import Thread
 from app.post.models import Post
 
 
-@app.route('/db/api/clear/')
+@app.route('/db/api/clear/', methods=['POST'])
 def db_clear():
     db.drop_all()
     db.create_all()

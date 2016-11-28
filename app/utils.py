@@ -2,6 +2,7 @@ from flask import jsonify, g, request
 from app import db
 from functools import wraps
 
+
 # responses
 def base_response(code, data=None):
     return jsonify(
@@ -24,7 +25,9 @@ def form_valid(form_class, method='POST', flat=False):
                 form = form_class(data=request.args.to_dict(flat=flat))
             if form.validate():
                 return f(form, *args, **kwargs)
-            raise IncorrectRequest
+            print(form.errors)
+            print(form.data)
+            return base_response(3, 'Incorrect request')
         return wrapper
     return decorator
 

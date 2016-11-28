@@ -1,9 +1,13 @@
-import datetime
+from datetime import datetime
 
 from app import db
 from app.utils import Model
 from app.handlers import IncorrectRequest
 from config import DATETIME
+
+from app.user.models import User
+from app.forum.models import Forum
+from app.thread.models import Thread
 
 
 class Post(Model):
@@ -36,10 +40,10 @@ class Post(Model):
         self.isSpam = isSpam
         self.isDeleted = isDeleted
 
-        self.parent_id = Post.query.get_or_404(parent)
-        self.user_id = User.query.filter_by(email=user).first_or_404().id
-        self.forum = Forum.query.filter_by(short_name=forum).first_or_404().id
-        self.thread = Thread.query.filter_by(slug=thread).first_or_404().id
+        self.parent_id = parent_id
+        self.user_id = user_id
+        self.forum_id = forum_id
+        self.thread_id = thread_id
 
     def serialize(self, related=[]):
         return {

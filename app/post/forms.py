@@ -6,6 +6,7 @@ from app.handlers import IncorrectRequest
 from .models import Post
 from app.thread.models import Thread, magic_filter
 from app.forum.models import Forum
+from app.user.models import User
 
 
 class PostCreateForm(FlaskForm):
@@ -14,7 +15,7 @@ class PostCreateForm(FlaskForm):
     thread = IntegerField(validators=[Required()])
     user = TextField(validators=[Required()])
     forum = TextField(validators=[Required()])
-    parent = IntegerField()
+    parent = TextField()
     isApproved = BooleanField(false_values=[False])
     isHighlighted = BooleanField(false_values=[False])
     isEdited = BooleanField(false_values=[False])
@@ -22,10 +23,10 @@ class PostCreateForm(FlaskForm):
     isDeleted = BooleanField(false_values=[False])
 
     def save(self):
-        parent_id = Post.query.get_or_404(self.parent.data).id if self.parent.data else None
-        user_id = User.query.filter_by(email=user).first_or_404().id
-        forum_id = Forum.query.filter_by(short_name=forum).first_or_404().id
-        thread_id = Thread.query.filter_by(slug=thread).first_or_404().id
+        parent_id = Post.query.get_or_404(int(self.parent.data)).id if self.parent.data else None
+        user_id = User.query.filter_by(email=self.user.data).first_or_404().id
+        forum_id = Forum.query.filter_by(short_name=self.forum.data).first_or_404().id
+        thread_id = Thread.query.get_or_404(self.thread.data).id
 
         post = Post(
             message=self.message.data,
@@ -48,6 +49,7 @@ class PostForm(FlaskForm):
     post = IntegerField(validators=[Required()])
 
     def validate(self):
+        print('validation')
         if (super(PostForm, self).validate()):
             self.post_obj = Post.query.get_or_404(self.post.data)
             return True
@@ -73,7 +75,7 @@ class PostUpdateForm(PostForm):
 class PostVoteForm(PostForm):
     vote = IntegerField(validators=[AnyOf([1, -1])])
 
-    def vote(self):
+    def update_vote(self):
         if self.vote.data == 1:
             self.post_obj.likes += 1
         else:
@@ -84,7 +86,7 @@ class PostDetailForm(PostForm):
     related = FieldList(TextField(), max_entries=3)
 
     def get_post_data(self):
-        return post_obj.serialize(self.related.data)
+        return self.post_obj.serialize(self.related.data)
 
 
 class PostListForm(FlaskForm):
@@ -102,10 +104,10 @@ class PostListForm(FlaskForm):
     def get_post_list_data(self):
         if self.thread.data:
             thread = Thread.query.get_or_404(self.thread.data)
-            post_list_qs = thread.posts
+            post_list_qs = thread.posts.filter(Post.isDeleted==False)
         else:
             forum = Forum.query.filter_by(short_name=self.forum.data).first_or_404()
-            post_list_qs = forum.posts
+            post_list_qs = forum.posts.filter(Post.isDeleted==False)
 
-        return [t.serialize() for t in (magic_filter(post_list_qs, self.data)).all()]
+        return [t.serialize() for t in (magic_filter(post_list_qs, self.data, Post)).all()]
 

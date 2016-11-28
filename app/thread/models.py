@@ -22,6 +22,8 @@ class Thread(Model):
     user_id = db.Column(db.Integer(), db.ForeignKey('user.id'), nullable=False)
     forum_id = db.Column(db.Integer(), db.ForeignKey('forum.id'), nullable=False)
 
+    posts = db.relationship('Post', backref='thread',  lazy='dynamic')
+
     def __init__(self, user, forum, title, message, slug, date, isClosed, isDeleted):
         self.title = title
         self.message = message
@@ -33,6 +35,7 @@ class Thread(Model):
         self.forum_id = forum.id
 
     def serialize(self, related=[]):
+        from app.post.models import Post
         return {
             'id': self.id,
             'title': self.title,
@@ -46,24 +49,25 @@ class Thread(Model):
             'points': self.likes - self.dislikes,
             'user': self.user.serialize() if 'user' in related else self.user.email,
             'forum': self.forum.serialize() if 'forum' in related else self.forum.short_name,
+            'posts': self.posts.filter(Post.isDeleted==False).count()
         }
 
     def __repr__(self):
         return '<Thread %s>' % self.slug
 
 
-def magic_filter(qs, options={}):
+def magic_filter(qs, options={}, filter_class=None):
     if options.get('since'):
         try:
             date = datetime.strptime(options.get('since'), DATETIME)
-            qs = qs.filter(Thread.date >= date)
+            qs = qs.filter(filter_class.date >= date)
         except ValueError:
             raise RequestNotValid
 
     if options.get('order') == 'asc':
-        qs = qs.order_by(Thread.date)
+        qs = qs.order_by(filter_class.date)
     else:
-        qs = qs.order_by(db.desc(Thread.date))
+        qs = qs.order_by(db.desc(filter_class.date))
 
     if options.get('limit'):
         try:

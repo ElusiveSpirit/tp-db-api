@@ -3,7 +3,8 @@ from app import app
 from app.handlers import IncorrectRequest, RequestNotValid
 from app.utils import response, form_valid
 
-from .forms import ForumForm, ForumDetailForm, ForumUserListForm, ForumThreadListForm
+from .forms import (ForumForm, ForumDetailForm, ForumUserListForm, ForumThreadListForm,
+                    ForumPostListForm)
 
 
 @app.route('/db/api/forum/create/', methods=['POST'])
@@ -33,3 +34,9 @@ def forum_users(form):
 @form_valid(ForumThreadListForm, 'GET')
 def forum_threads(form):
     return response(form.get_thread_list_data())
+
+
+@app.route('/db/api/forum/listThreads')
+@form_valid(ForumPostListForm, 'GET')
+def forum_posts(form):
+    return response(form.get_post_list_data())

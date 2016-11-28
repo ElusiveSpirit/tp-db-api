@@ -10,6 +10,7 @@ class Forum(Model):
 
     # backref
     threads = db.relationship('Thread', backref='forum',  lazy='dynamic')
+    posts = db.relationship('Post', backref='forum',  lazy='dynamic')
 
     def __init__(self, name, short_name, user):
         self.name = name

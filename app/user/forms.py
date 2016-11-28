@@ -47,7 +47,7 @@ class UserPostListForm(FlaskForm):
 
     def get_post_list_data(self):
         user = User.query.filter_by(email=self.user.data).first_or_404()
-        post_list_qs = user.posts
+        post_list_qs = user.posts.filter(Post.isDeleted==False)
 
-        return [t.serialize() for t in (magic_filter(post_list_qs, self.data)).all()]
+        return [t.serialize() for t in (magic_filter(post_list_qs, self.data, Post)).all()]
 

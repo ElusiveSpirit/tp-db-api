@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from sqlalchemy.orm import aliased
 from sqlalchemy import or_
 from wtforms import TextField, BooleanField, IntegerField, FieldList, ValidationError
 from wtforms.validators import Required, AnyOf
@@ -60,7 +61,7 @@ class ThreadListForm(FlaskForm):
             forum = Forum.query.filter_by(short_name=self.forum.data).first_or_404()
             thread_list_qs = forum.threads
 
-        return [t.serialize() for t in (magic_filter(thread_list_qs, self.data)).all()]
+        return [t.serialize() for t in (magic_filter(thread_list_qs, self.data, Thread)).all()]
 
 
 class ThreadVoteForm(FlaskForm):
@@ -91,7 +92,7 @@ class ThreadUpdateForm(FlaskForm):
 
 class ThreadDetailForm(FlaskForm):
     thread = IntegerField(validators=[Required()])
-    related = FieldList(TextField(), max_entries=2)
+    related = FieldList(TextField(validators=[AnyOf(['user', 'forum', None])]), max_entries=2)
 
     def get_thread_data(self):
         thread = Thread.query.get_or_404(self.thread.data)
@@ -153,3 +154,61 @@ class ThreadRemoveForm(FlaskForm):
         thread = Thread.query.get_or_404(self.thread.data)
         thread.isDeleted = True
         thread.save()
+
+
+class ThreadPostListForm(FlaskForm):
+    thread = IntegerField(validators=[Required()])
+    since = TextField()
+    limit = IntegerField()
+    order = TextField(validators=[AnyOf(['asc', 'desc', None])])
+    sort = TextField(validators=[AnyOf(['flat', 'tree', 'parent_tree', None])])
+
+    def get_post_list_data(self):
+        qs = Thread.posts.query.filter(Post.isDeleted==False).all()
+        options = self.data
+
+        if options.get('since'):
+            try:
+                date = datetime.strptime(options.get('since'), DATETIME)
+                qs = qs.filter(Post.date >= date)
+            except ValueError:
+                raise RequestNotValid
+
+        if options.get('limit'):
+            try:
+                qs = qs.limit(int(options.get('limit')))
+            except ValueError:
+                raise IncorrectRequest
+
+        if self.sort.data == 'flat':
+            # Simple sorting
+
+            if options.get('order') == 'asc':
+                qs = qs.order_by(Post.date)
+            else:
+                qs = qs.order_by(db.desc(Post.date))
+
+            data = [p.serialize() for p in qs.all()]
+        elif self.sort.data == 'tree':
+            # Tree sorting
+            child = aliased(Post)
+            qs = qs.join(child, Post.id==child.parent_id)
+
+            if options.get('order') == 'asc':
+                qs = qs.order_by(Post.date, child.date)
+            else:
+                qs = qs.order_by(db.desc(Post.date), child.date)
+
+            post_list = qs.all()
+
+            data = {}
+            # for post in post_list:
+            #     if post.parent_id
+
+        else:
+            # Parent tree sorting
+            def get_child_posts(post):
+                pass
+
+            qs = qs.filter(Post.parent_id==None)
+

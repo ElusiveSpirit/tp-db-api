@@ -53,7 +53,7 @@ class ForumThreadListForm(FlaskForm):
         forum = Forum.query.filter_by(short_name=self.forum.data).first_or_404()
         thread_list_qs = forum.threads
 
-        return [t.serialize(self.related.data) for t in (magic_filter(thread_list_qs, self.data)).all()]
+        return [t.serialize(self.related.data) for t in (magic_filter(thread_list_qs, self.data, Thread)).all()]
 
 
 class ForumUserListForm(FlaskForm):
@@ -67,3 +67,17 @@ class ForumUserListForm(FlaskForm):
         user_list_qs = forum.users
 
         return [t.serialize() for t in (special_filter(user_list_qs, self.data)).all()]
+
+
+class ForumPostListForm(FlaskForm):
+    forum = TextField(validators=[Required()])
+    since = TextField()
+    limit = IntegerField()
+    order = TextField(validators=[AnyOf(['asc', 'desc', None])])
+    related = FieldList(TextField(), max_entries=2)
+
+    def get_post_list_data(self):
+        forum = Forum.query.filter_by(short_name=self.forum.data).first_or_404()
+        post_list_qs = forum.posts.filter(Post.isDeleted==False)
+
+        return [t.serialize(self.related.data) for t in (magic_filter(post_list_qs, self.data, Post)).all()]

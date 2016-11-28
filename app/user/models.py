@@ -41,6 +41,7 @@ class User(Model):
     # backrefs
     forums = db.relationship('Forum', backref='user',  lazy='dynamic')
     threads = db.relationship('Thread', backref='user',  lazy='dynamic')
+    posts = db.relationship('Post', backref='user',  lazy='dynamic')
 
     def __init__(self, email, username, name, about, isAnonymous=False):
         self.email = email
