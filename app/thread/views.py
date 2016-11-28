@@ -5,7 +5,7 @@ from app.utils import response, form_valid
 
 from .forms import (ThreadForm, ThreadCloseForm, ThreadRemoveForm, ThreadDetailForm,
                     ThreadListForm, ThreadRestoreForm, ThreadOpenForm, ThreadSubscribeForm,
-                    ThreadVoteForm)
+                    ThreadVoteForm, ThreadPostListForm)
 
 
 @app.route('/db/api/thread/create/', methods=['POST'])
@@ -51,14 +51,14 @@ def thread_close(form):
 
 @app.route('/db/api/thread/restore/', methods=['POST'])
 @form_valid(ThreadRestoreForm)
-def thread_restore():
+def thread_restore(form):
     form.restore()
     return response({'thread': form.thread.data})
 
 
 @app.route('/db/api/thread/remove/', methods=['POST'])
 @form_valid(ThreadRemoveForm)
-def thread_remove():
+def thread_remove(form):
     form.remove()
     return response({'thread': form.thread.data})
 
@@ -81,4 +81,11 @@ def thread_unsubscribe(form):
         'thread': form.thread.data,
         'user': form.user.data
     })
+
+
+@app.route('/db/api/thread/listPosts/')
+@form_valid(ThreadPostListForm, 'GET', True)
+def thread_post_list(form):
+    res = form.get_post_list_data()
+    return response(res if res else [])
 

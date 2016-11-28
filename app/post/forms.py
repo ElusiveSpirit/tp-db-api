@@ -80,6 +80,7 @@ class PostVoteForm(PostForm):
             self.post_obj.likes += 1
         else:
             self.post_obj.dislikes += 1
+        self.post_obj.save()
 
 
 class PostDetailForm(PostForm):

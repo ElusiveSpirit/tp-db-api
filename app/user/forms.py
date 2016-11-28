@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import TextField, BooleanField, TextAreaField, BooleanField, IntegerField
 from wtforms.validators import Required, Length, AnyOf
 
+from .models import User
 from app.thread.models import magic_filter
 
 
@@ -47,6 +48,7 @@ class UserPostListForm(FlaskForm):
 
     def get_post_list_data(self):
         user = User.query.filter_by(email=self.user.data).first_or_404()
+        from app.post.models import Post
         post_list_qs = user.posts.filter(Post.isDeleted==False)
 
         return [t.serialize() for t in (magic_filter(post_list_qs, self.data, Post)).all()]

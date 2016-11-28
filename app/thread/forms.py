@@ -1,3 +1,6 @@
+from datetime import datetime
+from config import DATETIME
+from app import db
 from flask_wtf import FlaskForm
 from sqlalchemy.orm import aliased
 from sqlalchemy import or_
@@ -8,6 +11,7 @@ from app.handlers import IncorrectRequest
 from .models import Thread, magic_filter
 from app.user.models import User
 from app.forum.models import Forum
+from app.post.models import Post
 
 
 class ThreadForm(FlaskForm):
@@ -164,7 +168,8 @@ class ThreadPostListForm(FlaskForm):
     sort = TextField(validators=[AnyOf(['flat', 'tree', 'parent_tree', None])])
 
     def get_post_list_data(self):
-        qs = Thread.posts.query.filter(Post.isDeleted==False).all()
+        thread = Thread.query.get_or_404(self.thread.data)
+        qs = thread.posts.filter(Post.isDeleted==False)
         options = self.data
 
         if options.get('since'):
@@ -174,21 +179,13 @@ class ThreadPostListForm(FlaskForm):
             except ValueError:
                 raise RequestNotValid
 
-        if options.get('limit'):
-            try:
-                qs = qs.limit(int(options.get('limit')))
-            except ValueError:
-                raise IncorrectRequest
 
-        if self.sort.data == 'flat':
-            # Simple sorting
+        if self.sort.data == 'parent_tree':
+            # Parent tree sorting
+            def get_child_posts(post):
+                pass
 
-            if options.get('order') == 'asc':
-                qs = qs.order_by(Post.date)
-            else:
-                qs = qs.order_by(db.desc(Post.date))
-
-            data = [p.serialize() for p in qs.all()]
+            qs = qs.filter(Post.parent_id==None)
         elif self.sort.data == 'tree':
             # Tree sorting
             child = aliased(Post)
@@ -206,9 +203,16 @@ class ThreadPostListForm(FlaskForm):
             #     if post.parent_id
 
         else:
-            # Parent tree sorting
-            def get_child_posts(post):
-                pass
+            # Simple sorting
+            if options.get('order') == 'asc':
+                qs = qs.order_by(Post.date)
+            else:
+                qs = qs.order_by(db.desc(Post.date))
 
-            qs = qs.filter(Post.parent_id==None)
+            if options.get('limit'):
+                try:
+                    qs = qs.limit(int(options.get('limit')))
+                except ValueError:
+                    raise IncorrectRequest
 
+            return [p.serialize() for p in qs.all()]

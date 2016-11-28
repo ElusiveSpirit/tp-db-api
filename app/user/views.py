@@ -67,9 +67,9 @@ def user_unfollow():
     raise IncorrectRequest
 
 
-@app.route('/db/api/user/listPosts')
-@form_valid(UserPostListForm)
-def user_posts():
+@app.route('/db/api/user/listPosts/')
+@form_valid(UserPostListForm, 'GET', True)
+def user_posts(form):
     return response(form.get_post_list_data())
 
 
