@@ -63,8 +63,10 @@ class User(Model):
             'isAnonymous': self.isAnonymous
         }
         if not less:
+            from app.thread.models import Thread
             data['followers'] = [f.email for f in self.followers]
             data['following'] = [f.email for f in self.following]
+            data['subscriptions'] = [t.id for t in self.subscribing.filter(Thread.isDeleted==False)]
         return data
 
     def create(self):

@@ -72,12 +72,13 @@ class ThreadVoteForm(FlaskForm):
     thread = IntegerField(validators=[Required()])
     vote = IntegerField(validators=[AnyOf([1, -1])])
 
-    def vote(self):
+    def update_vote(self):
         thread = Thread.query.get_or_404(self.thread.data)
         if self.vote.data == 1:
             thread.likes += 1
         else:
             thread.dislikes += 1
+        thread.save()
         return thread.serialize()
 
 
@@ -126,17 +127,17 @@ class ThreadSubscribeForm(FlaskForm):
     user = TextField(validators=[Required()])
 
     def subscribe(self):
-        user = User.query.filter_by(user=self.user.data).first_or_404()
+        user = User.query.filter(User.email==self.user.data).first_or_404()
         thread = Thread.query.get_or_404(self.thread.data)
-        if user.subscribing.query.filter(thread.id).first():
+        if user.subscribing.filter(Thread.id==thread.id).first():
             raise IncorrectRequest
         user.subscribing.append(thread)
         user.save()
 
     def unsubscribe(self):
-        user = User.query.filter_by(user=self.user.data).first_or_404()
+        user = User.query.filter(User.email==self.user.data).first_or_404()
         thread = Thread.query.get_or_404(self.thread.data)
-        if not user.subscribing.query.filter(thread.id).first():
+        if not user.subscribing.filter(Thread.id==thread.id).first():
             raise IncorrectRequest
         user.subscribing.remove(thread)
         user.save()
@@ -148,7 +149,12 @@ class ThreadRestoreForm(FlaskForm):
     def restore(self):
         thread = Thread.query.get_or_404(self.thread.data)
         thread.isDeleted = False
-        thread.save()
+        thread.save(commit=False)
+        post_list = thread.posts
+        for post in post_list:
+            post.isDeleted = False
+            post.save(commit=False)
+        db.session.commit()
 
 
 class ThreadRemoveForm(FlaskForm):
@@ -157,7 +163,12 @@ class ThreadRemoveForm(FlaskForm):
     def remove(self):
         thread = Thread.query.get_or_404(self.thread.data)
         thread.isDeleted = True
-        thread.save()
+        thread.save(commit=False)
+        post_list = thread.posts
+        for post in post_list:
+            post.isDeleted = True
+            post.save(commit=False)
+        db.session.commit()
 
 
 class ThreadPostListForm(FlaskForm):
@@ -169,7 +180,7 @@ class ThreadPostListForm(FlaskForm):
 
     def get_post_list_data(self):
         thread = Thread.query.get_or_404(self.thread.data)
-        qs = thread.posts.filter(Post.isDeleted==False)
+        qs = thread.posts
         options = self.data
 
         if options.get('since'):

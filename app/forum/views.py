@@ -24,19 +24,19 @@ def forum_detail():
     raise IncorrectRequest
 
 
-@app.route('/db/api/forum/listUsers')
+@app.route('/db/api/forum/listUsers/')
 @form_valid(ForumUserListForm, 'GET')
 def forum_users(form):
     return response(form.get_user_list_data())
 
 
-@app.route('/db/api/forum/listThreads')
+@app.route('/db/api/forum/listThreads/')
 @form_valid(ForumThreadListForm, 'GET')
 def forum_threads(form):
     return response(form.get_thread_list_data())
 
 
-@app.route('/db/api/forum/listThreads')
+@app.route('/db/api/forum/listPosts/')
 @form_valid(ForumPostListForm, 'GET')
 def forum_posts(form):
     return response(form.get_post_list_data())

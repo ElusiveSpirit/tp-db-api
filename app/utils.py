@@ -22,11 +22,18 @@ def form_valid(form_class, method='POST', flat=False):
             if method == 'POST':
                 form = form_class(data=g.data)
             else:
-                form = form_class(data=request.args.to_dict(flat=flat))
+                if flat:
+                    form = form_class(data=request.args.to_dict(flat=flat))
+                else:
+                    data = {k:v[0] if len(v) == 1 else v for k, v in zip(
+                        request.args.to_dict(flat=False).keys(),
+                        request.args.to_dict(flat=False).values()
+                    )}
+                    if 'related' in data and type(data['related']) != list:
+                        data['related'] = [data['related']]
+                    form = form_class(data=data)
             if form.validate():
                 return f(form, *args, **kwargs)
-            print(form.errors)
-            print(form.data)
             return base_response(3, 'Incorrect request')
         return wrapper
     return decorator

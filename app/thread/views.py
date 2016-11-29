@@ -5,7 +5,7 @@ from app.utils import response, form_valid
 
 from .forms import (ThreadForm, ThreadCloseForm, ThreadRemoveForm, ThreadDetailForm,
                     ThreadListForm, ThreadRestoreForm, ThreadOpenForm, ThreadSubscribeForm,
-                    ThreadVoteForm, ThreadPostListForm)
+                    ThreadVoteForm, ThreadPostListForm, ThreadUpdateForm)
 
 
 @app.route('/db/api/thread/create/', methods=['POST'])
@@ -32,7 +32,13 @@ def thread_list():
 @app.route('/db/api/thread/vote/', methods=['POST'])
 @form_valid(ThreadVoteForm)
 def thread_vote(form):
-    return response(form.vote())
+    return response(form.update_vote())
+
+
+@app.route('/db/api/thread/update/', methods=['POST'])
+@form_valid(ThreadUpdateForm)
+def thread_update(form):
+    return response(form.update())
 
 
 @app.route('/db/api/thread/open/', methods=['POST'])
