@@ -190,31 +190,10 @@ class ThreadPostListForm(FlaskForm):
             except ValueError:
                 raise RequestNotValid
 
-
         if self.sort.data == 'parent_tree':
             # Parent tree sorting
-            def get_child_posts(post):
-                pass
-
             qs = qs.filter(Post.parent_id==None)
-        elif self.sort.data == 'tree':
-            # Tree sorting
-            child = aliased(Post)
-            qs = qs.join(child, Post.id==child.parent_id)
 
-            if options.get('order') == 'asc':
-                qs = qs.order_by(Post.date, child.date)
-            else:
-                qs = qs.order_by(db.desc(Post.date), child.date)
-
-            post_list = qs.all()
-
-            data = {}
-            # for post in post_list:
-            #     if post.parent_id
-
-        else:
-            # Simple sorting
             if options.get('order') == 'asc':
                 qs = qs.order_by(Post.date)
             else:
@@ -226,4 +205,69 @@ class ThreadPostListForm(FlaskForm):
                 except ValueError:
                     raise IncorrectRequest
 
-            return [p.serialize() for p in qs.all()]
+            posts = qs.all()
+
+            def get_children(root_posts):
+                root_posts_ids = [p.id for p in root_posts]
+                return thread.posts.filter(Post.parent_id.in_(root_posts_ids)).order_by(Post.date).all()
+
+            children = get_children(posts)
+            while len(children) > 0:
+                insert_i = 0
+                for post in posts.copy():
+                    insert_i += 1
+                    for child in children:
+                        if child.parent_id == post.id:
+                            posts.insert(insert_i, child)
+                            insert_i += 1
+                children = get_children(children)
+
+        elif self.sort.data == 'tree':
+            # Tree sorting
+            child = aliased(Post)
+            try:
+                limit = int(options.get('limit'))
+            except ValueError:
+                raise IncorrectRequest
+
+            #  qs = thread.posts.join(child, Post.id==child.parent_id)
+            posts = []
+            post_ids = []
+            parent_ids = []
+            while limit > 0:
+                qs = thread.posts
+                qs = qs.filter(Post.parent_id==(parent_ids[-1] if len(parent_ids) > 0 else None))
+                if len(post_ids) > 0:
+                    qs = qs.filter(~Post.id.in_(post_ids))
+
+                if len(parent_ids) > 0 or options.get('order') == 'asc':
+                    qs = qs.order_by(Post.date)
+                else:
+                    qs = qs.order_by(db.desc(Post.date))
+
+                post = qs.first()
+                if post:
+                    posts.append(post)
+                    post_ids.append(post.id)
+                    parent_ids.append(post.id)
+                    limit -= 1
+                else:
+                    if len(post_ids) > 0:
+                        parent_ids.pop()
+                    else:
+                        break
+        else:
+            # Simple sorting (Flat)
+            if options.get('order') == 'asc':
+                qs = qs.order_by(Post.date)
+            else:
+                qs = qs.order_by(db.desc(Post.date))
+
+            if options.get('limit'):
+                try:
+                    qs = qs.limit(int(options.get('limit')))
+                except ValueError:
+                    raise IncorrectRequest
+            posts = qs.all()
+
+        return [p.serialize() for p in posts]

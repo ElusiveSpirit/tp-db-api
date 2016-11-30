@@ -7,6 +7,16 @@ from app.thread.models import Thread
 from app.post.models import Post
 
 
+@app.route('/')
+def index():
+    return """
+    <h1>Technopark db api</h1>
+    </hr>
+    <h3>Manyakhin K.A.</h3>
+    <p><a href="https://github.com/ElusiveSpirit/tp-db-api">Github repo</a></p>
+    """
+
+
 @app.route('/db/api/clear/', methods=['POST'])
 def db_clear():
     db.drop_all()
