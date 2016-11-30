@@ -1,0 +1,1037 @@
+info: Testing started for: 127.0.0.1:5000
+
+info: Clear all
+
+info: Let there be users.
+
+info: Requesting http://127.0.0.1:5000/db/api/user/create/ with {'username': 'user1', 'about': 'hello im user1', 'isAnonymous': False, 'name': 'John', 'email': 'example@mail.ru'} (POST)
+
+info: Request time was: 0.0453 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'example@mail.ru'} (GET)
+
+info: Request time was: 0.0122 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/user/create/ with {'username': None, 'about': None, 'isAnonymous': True, 'name': None, 'email': 'richard.nixon@example.com'} (POST)
+
+info: Request time was: 0.0229 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'richard.nixon@example.com'} (GET)
+
+info: Request time was: 0.0099 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/user/create/ with {'username': 'user2', 'about': 'hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2hello im user2', 'isAnonymous': False, 'name': 'Jey', 'email': 'example2@mail.ru'} (POST)
+
+info: Request time was: 0.0231 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'example2@mail.ru'} (GET)
+
+info: Request time was: 0.0096 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/user/create/ with {'username': 'user3', 'about': 'hello im user3', 'isAnonymous': False, 'name': 'Josh', 'email': 'example3@mail.ru'} (POST)
+
+info: Request time was: 0.0393 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'example3@mail.ru'} (GET)
+
+info: Request time was: 0.0310 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/user/create/ with {'username': 'user4', 'about': 'hello im user4', 'isAnonymous': False, 'name': 'Jim', 'email': 'example4@mail.ru'} (POST)
+
+info: Request time was: 0.0274 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'example4@mail.ru'} (GET)
+
+info: Request time was: 0.0123 sec
+
+info: Let there be content
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/create/ with {'name': 'Forum With Sufficiently Large Name', 'short_name': 'forumwithsufficientlylargename', 'user': 'example3@mail.ru'} (POST)
+
+info: Request time was: 0.0301 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/details/ with {'related': ['user'], 'forum': 'forumwithsufficientlylargename'} (GET)
+
+info: Request time was: 0.0111 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/create/ with {'name': 'Forum I', 'short_name': 'forum1', 'user': 'richard.nixon@example.com'} (POST)
+
+info: Request time was: 0.0256 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/details/ with {'related': ['user'], 'forum': 'forum1'} (GET)
+
+info: Request time was: 0.0104 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/create/ with {'name': 'Forum II', 'short_name': 'forum2', 'user': 'example4@mail.ru'} (POST)
+
+info: Request time was: 0.0319 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/details/ with {'related': ['user'], 'forum': 'forum2'} (GET)
+
+info: Request time was: 0.0236 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/create/ with {'name': u'\u0424\u043e\u0440\u0443\u043c \u0422\u0440\u0438', 'short_name': 'forum3', 'user': 'example4@mail.ru'} (POST)
+
+info: Request time was: 0.0385 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/details/ with {'related': ['user'], 'forum': 'forum3'} (GET)
+
+info: Request time was: 0.0190 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/create/ with {'forum': 'forumwithsufficientlylargename', 'title': 'Thread With Sufficiently Large Title', 'isClosed': True, 'user': 'example2@mail.ru', 'date': '2014-01-01 00:00:01', 'message': 'hey hey hey hey!', 'slug': 'Threadwithsufficientlylargetitle', 'isDeleted': False} (POST)
+
+info: Request time was: 0.0388 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'related': ['forum', 'user'], 'thread': 1} (GET)
+
+info: Request time was: 0.0176 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': True, 'user': 'example2@mail.ru', 'date': '2014-07-12 20:19:11', 'message': 'my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0', 'isSpam': False, 'isHighlighted': True, 'forum': 'forumwithsufficientlylargename', 'thread': 1, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0294 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 1, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0203 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 1, 'isApproved': True, 'user': 'example@mail.ru', 'date': '2015-08-12 12:39:47', 'message': 'my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1', 'isSpam': True, 'isHighlighted': True, 'forum': 'forumwithsufficientlylargename', 'thread': 1, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0313 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 2, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0200 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': False, 'user': 'richard.nixon@example.com', 'date': '2015-11-01 17:34:24', 'message': 'my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2', 'isSpam': False, 'isHighlighted': True, 'forum': 'forumwithsufficientlylargename', 'thread': 1, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0289 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 3, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0205 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 3, 'isApproved': True, 'user': 'example3@mail.ru', 'date': '2015-12-21 02:47:45', 'message': 'my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3', 'isSpam': False, 'isHighlighted': False, 'forum': 'forumwithsufficientlylargename', 'thread': 1, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0294 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 4, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0210 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': False, 'user': 'example4@mail.ru', 'date': '2016-06-07 16:28:19', 'message': 'my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4', 'isSpam': False, 'isHighlighted': False, 'forum': 'forumwithsufficientlylargename', 'thread': 1, 'isDeleted': False, 'isEdited': True} (POST)
+
+info: Request time was: 0.0286 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 5, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0202 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 5, 'isApproved': False, 'user': 'example@mail.ru', 'date': '2016-11-29 08:02:58', 'message': 'my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5', 'isSpam': True, 'isHighlighted': True, 'forum': 'forumwithsufficientlylargename', 'thread': 1, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0289 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 6, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0201 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': False, 'user': 'example4@mail.ru', 'date': '2016-11-30 05:38:44', 'message': 'my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6', 'isSpam': False, 'isHighlighted': True, 'forum': 'forumwithsufficientlylargename', 'thread': 1, 'isDeleted': False, 'isEdited': True} (POST)
+
+info: Request time was: 0.0282 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 7, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0204 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/create/ with {'forum': 'forum2', 'title': 'Thread I', 'isClosed': False, 'user': 'example@mail.ru', 'date': '2013-12-31 00:01:01', 'message': 'hey!', 'slug': 'thread1', 'isDeleted': False} (POST)
+
+info: Request time was: 0.0324 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'related': ['forum', 'user'], 'thread': 2} (GET)
+
+info: Request time was: 0.0177 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': True, 'user': 'example@mail.ru', 'date': '2016-01-28 04:33:12', 'message': 'my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0', 'isSpam': False, 'isHighlighted': False, 'forum': 'forum2', 'thread': 2, 'isDeleted': False, 'isEdited': True} (POST)
+
+info: Request time was: 0.0290 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 8, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0216 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': True, 'user': 'example3@mail.ru', 'date': '2016-11-25 09:32:19', 'message': 'my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1', 'isSpam': False, 'isHighlighted': False, 'forum': 'forum2', 'thread': 2, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0277 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 9, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0203 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': True, 'user': 'example3@mail.ru', 'date': '2016-11-29 00:43:38', 'message': 'my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2', 'isSpam': True, 'isHighlighted': False, 'forum': 'forum2', 'thread': 2, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0284 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 10, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0267 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': True, 'user': 'richard.nixon@example.com', 'date': '2016-11-30 00:12:00', 'message': 'my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3', 'isSpam': False, 'isHighlighted': True, 'forum': 'forum2', 'thread': 2, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0272 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 11, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0204 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 8, 'isApproved': True, 'user': 'example@mail.ru', 'date': '2016-11-30 06:57:14', 'message': 'my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4', 'isSpam': False, 'isHighlighted': False, 'forum': 'forum2', 'thread': 2, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0313 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 12, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0193 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': True, 'user': 'example@mail.ru', 'date': '2016-11-30 08:40:40', 'message': 'my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5', 'isSpam': False, 'isHighlighted': False, 'forum': 'forum2', 'thread': 2, 'isDeleted': False, 'isEdited': True} (POST)
+
+info: Request time was: 0.0280 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 13, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0193 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': False, 'user': 'richard.nixon@example.com', 'date': '2016-11-30 10:19:38', 'message': 'my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6', 'isSpam': False, 'isHighlighted': True, 'forum': 'forum2', 'thread': 2, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0277 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 14, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0248 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 10, 'isApproved': False, 'user': 'richard.nixon@example.com', 'date': '2016-11-30 10:48:28', 'message': 'my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7', 'isSpam': False, 'isHighlighted': False, 'forum': 'forum2', 'thread': 2, 'isDeleted': False, 'isEdited': True} (POST)
+
+info: Request time was: 0.0296 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 15, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0207 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/create/ with {'forum': 'forum3', 'title': 'Thread II', 'isClosed': False, 'user': 'example4@mail.ru', 'date': '2013-12-30 00:01:01', 'message': 'hey hey!', 'slug': 'thread2', 'isDeleted': False} (POST)
+
+info: Request time was: 0.0329 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'related': ['forum', 'user'], 'thread': 3} (GET)
+
+info: Request time was: 0.0166 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': True, 'user': 'example3@mail.ru', 'date': '2016-05-12 04:08:36', 'message': 'my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0', 'isSpam': True, 'isHighlighted': True, 'forum': 'forum3', 'thread': 3, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0279 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 16, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0192 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': True, 'user': 'richard.nixon@example.com', 'date': '2016-10-23 00:47:10', 'message': 'my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1', 'isSpam': True, 'isHighlighted': False, 'forum': 'forum3', 'thread': 3, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0285 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 17, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0191 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': False, 'user': 'example@mail.ru', 'date': '2016-11-07 21:22:47', 'message': 'my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2', 'isSpam': False, 'isHighlighted': False, 'forum': 'forum3', 'thread': 3, 'isDeleted': False, 'isEdited': True} (POST)
+
+info: Request time was: 0.0289 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 18, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0194 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 18, 'isApproved': False, 'user': 'richard.nixon@example.com', 'date': '2016-11-13 21:06:08', 'message': 'my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3', 'isSpam': True, 'isHighlighted': False, 'forum': 'forum3', 'thread': 3, 'isDeleted': False, 'isEdited': True} (POST)
+
+info: Request time was: 0.0296 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 19, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0221 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': False, 'user': 'richard.nixon@example.com', 'date': '2016-11-20 09:34:23', 'message': 'my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4', 'isSpam': False, 'isHighlighted': True, 'forum': 'forum3', 'thread': 3, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0273 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 20, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0192 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': True, 'user': 'example4@mail.ru', 'date': '2016-11-28 04:35:43', 'message': 'my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5', 'isSpam': True, 'isHighlighted': True, 'forum': 'forum3', 'thread': 3, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0277 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 21, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0184 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 16, 'isApproved': True, 'user': 'example4@mail.ru', 'date': '2016-11-29 06:13:34', 'message': 'my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6', 'isSpam': False, 'isHighlighted': False, 'forum': 'forum3', 'thread': 3, 'isDeleted': False, 'isEdited': True} (POST)
+
+info: Request time was: 0.0283 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 22, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0185 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 18, 'isApproved': False, 'user': 'example@mail.ru', 'date': '2016-11-29 14:34:53', 'message': 'my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7', 'isSpam': False, 'isHighlighted': True, 'forum': 'forum3', 'thread': 3, 'isDeleted': False, 'isEdited': True} (POST)
+
+info: Request time was: 0.0286 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 23, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0197 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 18, 'isApproved': True, 'user': 'example@mail.ru', 'date': '2016-11-29 19:25:09', 'message': 'my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8', 'isSpam': False, 'isHighlighted': False, 'forum': 'forum3', 'thread': 3, 'isDeleted': False, 'isEdited': True} (POST)
+
+info: Request time was: 0.0286 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 24, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0196 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 19, 'isApproved': True, 'user': 'example3@mail.ru', 'date': '2016-11-30 08:47:05', 'message': 'my message 9my message 9my message 9my message 9my message 9my message 9my message 9my message 9my message 9my message 9my message 9', 'isSpam': True, 'isHighlighted': False, 'forum': 'forum3', 'thread': 3, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0394 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 25, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0238 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/create/ with {'forum': 'forumwithsufficientlylargename', 'title': u'\u0422\u0440\u0435\u0434 \u0422\u0440\u0438', 'isClosed': False, 'user': 'example@mail.ru', 'date': '2013-12-29 00:01:01', 'message': 'hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! hey hey hey! ', 'slug': 'thread3', 'isDeleted': False} (POST)
+
+info: Request time was: 0.0326 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'related': ['forum', 'user'], 'thread': 4} (GET)
+
+info: Request time was: 0.0175 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': True, 'user': 'example@mail.ru', 'date': '2016-08-14 05:30:45', 'message': 'my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0my message 0', 'isSpam': True, 'isHighlighted': False, 'forum': 'forumwithsufficientlylargename', 'thread': 4, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0269 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 26, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0190 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 26, 'isApproved': True, 'user': 'example3@mail.ru', 'date': '2016-10-21 14:44:53', 'message': 'my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1my message 1', 'isSpam': False, 'isHighlighted': False, 'forum': 'forumwithsufficientlylargename', 'thread': 4, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0299 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 27, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0196 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 26, 'isApproved': True, 'user': 'example2@mail.ru', 'date': '2016-11-16 07:54:18', 'message': 'my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2my message 2', 'isSpam': False, 'isHighlighted': False, 'forum': 'forumwithsufficientlylargename', 'thread': 4, 'isDeleted': False, 'isEdited': True} (POST)
+
+info: Request time was: 0.0290 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 28, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0259 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': False, 'user': 'example2@mail.ru', 'date': '2016-11-17 14:07:24', 'message': 'my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3', 'isSpam': True, 'isHighlighted': True, 'forum': 'forumwithsufficientlylargename', 'thread': 4, 'isDeleted': False, 'isEdited': True} (POST)
+
+info: Request time was: 0.0362 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 29, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0293 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 29, 'isApproved': True, 'user': 'richard.nixon@example.com', 'date': '2016-11-23 16:24:02', 'message': 'my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4my message 4', 'isSpam': False, 'isHighlighted': False, 'forum': 'forumwithsufficientlylargename', 'thread': 4, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0302 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 30, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0206 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': None, 'isApproved': False, 'user': 'example2@mail.ru', 'date': '2016-11-25 23:10:16', 'message': 'my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5my message 5', 'isSpam': False, 'isHighlighted': True, 'forum': 'forumwithsufficientlylargename', 'thread': 4, 'isDeleted': False, 'isEdited': True} (POST)
+
+info: Request time was: 0.0290 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 31, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0207 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 26, 'isApproved': False, 'user': 'richard.nixon@example.com', 'date': '2016-11-26 14:12:56', 'message': 'my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6my message 6', 'isSpam': True, 'isHighlighted': False, 'forum': 'forumwithsufficientlylargename', 'thread': 4, 'isDeleted': False, 'isEdited': True} (POST)
+
+info: Request time was: 0.0356 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 32, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0221 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 30, 'isApproved': False, 'user': 'richard.nixon@example.com', 'date': '2016-11-28 19:24:55', 'message': 'my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7my message 7', 'isSpam': False, 'isHighlighted': False, 'forum': 'forumwithsufficientlylargename', 'thread': 4, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0295 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 33, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0205 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/create/ with {'parent': 32, 'isApproved': False, 'user': 'example@mail.ru', 'date': '2016-11-30 09:07:48', 'message': 'my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8my message 8', 'isSpam': False, 'isHighlighted': True, 'forum': 'forumwithsufficientlylargename', 'thread': 4, 'isDeleted': False, 'isEdited': False} (POST)
+
+info: Request time was: 0.0306 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 34, 'related': ['thread', 'forum', 'user']} (GET)
+
+info: Request time was: 0.0202 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': -42} (GET)
+
+info: Request time was: 0.0062 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/user/create/ with {'username': 'user4', 'about': 'hello im user4', 'isAnonymous': False, 'name': 'Jim', 'email': 'example4@mail.ru'} (POST)
+
+info: Request time was: 0.0060 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'related': ['user', 'thread'], 'thread': 1} (GET)
+
+info: Request time was: 0.0041 sec
+
+info: List posts
+
+info: Requesting http://127.0.0.1:5000/db/api/post/list/ with {'since': '2014-01-02 00:00:00', 'limit': 2, 'order': 'asc', 'forum': 'forumwithsufficientlylargename'} (GET)
+
+info: Request time was: 0.0109 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/post/list/ with {'since': '2014-01-01 00:00:00', 'order': 'desc', 'forum': 'forum1'} (GET)
+
+info: Request time was: 0.0082 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/post/list/ with {'since': '2014-01-01 00:00:00', 'order': 'desc', 'thread': 3} (GET)
+
+info: Request time was: 0.0164 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/post/list/ with {'since': '2014-01-03 00:00:00', 'limit': 3, 'order': 'desc', 'thread': 2} (GET)
+
+info: Request time was: 0.0113 sec
+
+info: Validating by requesting list of objects
+
+info: Remove post
+
+info: Requesting http://127.0.0.1:5000/db/api/post/remove/ with {'post': 4} (POST)
+
+info: Request time was: 0.0303 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 4} (GET)
+
+info: Request time was: 0.0205 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'thread': 1} (GET)
+
+info: Request time was: 0.0161 sec
+
+info: Restore post
+
+info: Requesting http://127.0.0.1:5000/db/api/post/restore/ with {'post': 4} (POST)
+
+info: Request time was: 0.0239 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 4} (GET)
+
+info: Request time was: 0.0099 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'thread': 1} (GET)
+
+info: Request time was: 0.0126 sec
+
+info: Update post
+
+info: Requesting http://127.0.0.1:5000/db/api/post/update/ with {'post': 4, 'message': 'my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3my message 3'} (POST)
+
+info: Request time was: 0.0107 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 4} (GET)
+
+info: Request time was: 0.0084 sec
+
+info: Likes time!!!
+
+info: Requesting http://127.0.0.1:5000/db/api/post/vote/ with {'vote': -1, 'post': 7} (POST)
+
+info: Request time was: 0.0255 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/post/details/ with {'post': 7} (GET)
+
+info: Request time was: 0.0091 sec
+
+info: List some threads
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/list/ with {'since': '2014-01-02 00:00:00', 'limit': 2, 'order': 'asc', 'forum': 'forumwithsufficientlylargename'} (GET)
+
+info: Request time was: 0.0078 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/list/ with {'since': '2014-01-01 00:00:00', 'order': 'desc', 'forum': 'forum1'} (GET)
+
+info: Request time was: 0.0077 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/list/ with {'since': '2014-01-01 00:00:00', 'user': 'example2@mail.ru', 'order': 'desc'} (GET)
+
+info: Request time was: 0.0149 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/list/ with {'since': '2014-01-03 00:00:00', 'limit': 3, 'user': 'example3@mail.ru', 'order': 'desc'} (GET)
+
+info: Request time was: 0.0092 sec
+
+info: Validating by requesting list of objects
+
+info: And list posts in them
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/listPosts/ with {'since': '2014-01-02 00:00:00', 'limit': 2, 'order': 'asc', 'thread': 3} (GET)
+
+info: Request time was: 0.0115 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/listPosts/ with {'sort': 'tree', 'since': '2014-01-01 00:00:00', 'limit': 3, 'order': 'desc', 'thread': 2} (GET)
+
+info: Request time was: 0.0201 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/listPosts/ with {'sort': 'parent_tree', 'since': '2014-01-01 00:00:00', 'limit': 2, 'order': 'asc', 'thread': 4} (GET)
+
+info: Request time was: 0.0195 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/listPosts/ with {'since': '2014-01-03 00:00:00', 'limit': 3, 'order': 'desc', 'thread': 4} (GET)
+
+info: Request time was: 0.0111 sec
+
+info: Validating by requesting list of objects
+
+info: Go away thread!
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/remove/ with {'thread': 1} (POST)
+
+info: Request time was: 0.0266 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'thread': 1} (GET)
+
+info: Request time was: 0.0140 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/listPosts/ with {'order': 'desc', 'thread': 1} (GET)
+
+info: Request time was: 0.0137 sec
+
+info: Validating by requesting list of objects
+
+info: Alright, I forgive you, come back
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/restore/ with {'thread': 1} (POST)
+
+info: Request time was: 0.0245 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'thread': 1} (GET)
+
+info: Request time was: 0.0132 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/listPosts/ with {'order': 'desc', 'thread': 1} (GET)
+
+info: Request time was: 0.0138 sec
+
+info: Validating by requesting list of objects
+
+info: Changed my mind again, goodbye!
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/close/ with {'thread': 1} (POST)
+
+info: Request time was: 0.0065 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'thread': 1} (GET)
+
+info: Request time was: 0.0127 sec
+
+info: But I cant live without you
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/open/ with {'thread': 1} (POST)
+
+info: Request time was: 0.0223 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'thread': 1} (GET)
+
+info: Request time was: 0.0126 sec
+
+info: Update post
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/update/ with {'message': 'hey hey hey hey!', 'slug': 'newslug', 'thread': 1} (POST)
+
+info: Request time was: 0.0306 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'thread': 1} (GET)
+
+info: Request time was: 0.0125 sec
+
+info: Likes time...again!
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/vote/ with {'vote': -1, 'thread': 3} (POST)
+
+info: Request time was: 0.0303 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'thread': 3} (GET)
+
+info: Request time was: 0.0129 sec
+
+info: Subscribe me
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/subscribe/ with {'user': 'example2@mail.ru', 'thread': 2} (POST)
+
+info: Request time was: 0.0267 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'thread': 2} (GET)
+
+info: Request time was: 0.0138 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/subscribe/ with {'user': 'example4@mail.ru', 'thread': 4} (POST)
+
+info: Request time was: 0.0324 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'thread': 4} (GET)
+
+info: Request time was: 0.0126 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/subscribe/ with {'user': 'example@mail.ru', 'thread': 3} (POST)
+
+info: Request time was: 0.0255 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'thread': 3} (GET)
+
+info: Request time was: 0.0126 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/subscribe/ with {'user': 'richard.nixon@example.com', 'thread': 4} (POST)
+
+info: Request time was: 0.0263 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'thread': 4} (GET)
+
+info: Request time was: 0.0125 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/subscribe/ with {'user': 'example2@mail.ru', 'thread': 3} (POST)
+
+info: Request time was: 0.0307 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'thread': 3} (GET)
+
+info: Request time was: 0.0360 sec
+
+info: Unsubscribe me
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/unsubscribe/ with {'user': 'example@mail.ru', 'thread': 4} (POST)
+
+info: Request time was: 0.0103 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/thread/details/ with {'thread': 4} (GET)
+
+info: Request time was: 0.0156 sec
+
+info: OMG, I was soooooo wasted...what did I wrote yesterday?
+
+info: Requesting http://127.0.0.1:5000/db/api/user/listPosts/ with {'since': '2014-01-02 00:00:00', 'limit': 2, 'user': 'example@mail.ru', 'order': 'asc'} (GET)
+
+info: Request time was: 0.0135 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/user/listPosts/ with {'since': '2014-01-01 00:00:00', 'user': 'richard.nixon@example.com', 'order': 'desc'} (GET)
+
+info: Request time was: 0.0172 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/user/listPosts/ with {'since': '2014-01-01 00:00:00', 'user': 'example2@mail.ru', 'order': 'asc'} (GET)
+
+info: Request time was: 0.0108 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/user/listPosts/ with {'since': '2014-01-03 00:00:00', 'limit': 3, 'user': 'example3@mail.ru', 'order': 'desc'} (GET)
+
+info: Request time was: 0.0121 sec
+
+info: Validating by requesting list of objects
+
+info: It was huge mistake. Need to change a nick quickly
+
+info: Requesting http://127.0.0.1:5000/db/api/user/updateProfile/ with {'about': 'Wowowowow', 'user': 'example2@mail.ru', 'name': 'NewName'} (POST)
+
+info: Request time was: 0.0300 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'example2@mail.ru'} (GET)
+
+info: Request time was: 0.0100 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/user/updateProfile/ with {'about': 'Wowowowow!!!', 'user': 'example3@mail.ru', 'name': 'NewName2'} (POST)
+
+info: Request time was: 0.0312 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'example3@mail.ru'} (GET)
+
+info: Request time was: 0.0101 sec
+
+info: Follow someone
+
+info: Requesting http://127.0.0.1:5000/db/api/user/follow/ with {'follower': 'example3@mail.ru', 'followee': 'example@mail.ru'} (POST)
+
+info: Request time was: 0.0295 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'example3@mail.ru'} (GET)
+
+info: Request time was: 0.0127 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'example@mail.ru'} (GET)
+
+info: Request time was: 0.0096 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/user/follow/ with {'follower': 'example@mail.ru', 'followee': 'example3@mail.ru'} (POST)
+
+info: Request time was: 0.0303 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'example@mail.ru'} (GET)
+
+info: Request time was: 0.0097 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'example3@mail.ru'} (GET)
+
+info: Request time was: 0.0101 sec
+
+info: List followers
+
+info: Requesting http://127.0.0.1:5000/db/api/user/listFollowers/ with {'limit': 3, 'user': 'example3@mail.ru', 'since_id': 0, 'order': 'desc'} (GET)
+
+info: Request time was: 0.0118 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/user/listFollowers/ with {'user': 'example@mail.ru', 'order': 'asc'} (GET)
+
+info: Request time was: 0.0110 sec
+
+info: Validating by requesting list of objects
+
+info: List following
+
+info: Requesting http://127.0.0.1:5000/db/api/user/listFollowing/ with {'limit': 3, 'user': 'example3@mail.ru', 'since_id': 1, 'order': 'desc'} (GET)
+
+info: Request time was: 0.0116 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/user/listFollowing/ with {'user': 'example@mail.ru', 'order': 'asc'} (GET)
+
+info: Request time was: 0.0109 sec
+
+info: Validating by requesting list of objects
+
+info: Unfollow someone
+
+info: Requesting http://127.0.0.1:5000/db/api/user/unfollow/ with {'follower': 'example3@mail.ru', 'followee': 'example@mail.ru'} (POST)
+
+info: Request time was: 0.0327 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'example3@mail.ru'} (GET)
+
+info: Request time was: 0.0105 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'example@mail.ru'} (GET)
+
+info: Request time was: 0.0099 sec
+
+info: Requesting http://127.0.0.1:5000/db/api/user/unfollow/ with {'follower': 'example@mail.ru', 'followee': 'example3@mail.ru'} (POST)
+
+info: Request time was: 0.0291 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'example@mail.ru'} (GET)
+
+info: Request time was: 0.0099 sec
+
+info: Validating by requesting object details
+
+info: Requesting http://127.0.0.1:5000/db/api/user/details/ with {'user': 'example3@mail.ru'} (GET)
+
+info: Request time was: 0.0100 sec
+
+info: List forum posts
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/listPosts/ with {'related': ['thread'], 'since': '2014-01-02 00:00:00', 'limit': 2, 'order': 'asc', 'forum': 'forumwithsufficientlylargename'} (GET)
+
+info: Request time was: 0.0212 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/listPosts/ with {'related': ['thread', 'forum'], 'since': '2014-01-01 00:00:00', 'order': 'desc', 'forum': 'forum1'} (GET)
+
+info: Request time was: 0.0080 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/listPosts/ with {'since': '2014-01-01 00:00:00', 'order': 'desc', 'forum': 'forum2'} (GET)
+
+info: Request time was: 0.0124 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/listPosts/ with {'since': '2014-01-03 00:00:00', 'limit': 3, 'order': 'desc', 'forum': 'forum3'} (GET)
+
+info: Request time was: 0.0106 sec
+
+info: Validating by requesting list of objects
+
+info: List forum threads
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/listThreads/ with {'related': ['forum', 'user'], 'since': '2013-12-30 00:00:00', 'limit': 2, 'order': 'asc', 'forum': 'forumwithsufficientlylargename'} (GET)
+
+info: Request time was: 0.0199 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/listThreads/ with {'related': ['forum'], 'since': '2013-12-31 00:00:00', 'order': 'desc', 'forum': 'forum1'} (GET)
+
+info: Request time was: 0.0078 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/listThreads/ with {'related': ['user'], 'since': '2014-01-01 00:00:00', 'order': 'desc', 'forum': 'forum2'} (GET)
+
+info: Request time was: 0.0078 sec
+
+info: Validating by requesting list of objects
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/listThreads/ with {'since': '2013-12-29 00:00:00', 'limit': 3, 'order': 'desc', 'forum': 'forum3'} (GET)
+
+info: Request time was: 0.0137 sec
+
+info: Validating by requesting list of objects
+
+info: List forum users
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/listUsers/ with {'limit': 2, 'since_id': 2, 'forum': 'forumwithsufficientlylargename', 'order': 'asc'} (GET)
+
+info: Request time was: 0.0171 sec
+
+info: Validating by requesting list of objects
+
+error: Attribute <username> from API response (value=u'user2') dont match test object (value='user4')
+
+info: obj {'about': 'hello im user4',
+ 'email': 'example4@mail.ru',
+ 'followers': [],
+ 'following': [],
+ 'id': 5,
+ 'isAnonymous': False,
+ 'name': 'Jim',
+ 'subscriptions': [4],
+ 'username': 'user4'} != obj {'about': u'Wowowowow',
+ 'email': u'example2@mail.ru',
+ 'followers': [],
+ 'following': [],
+ 'id': 3,
+ 'isAnonymous': False,
+ 'name': u'NewName',
+ 'subscriptions': [2, 3],
+ 'username': u'user2'}
+
+info: Requesting http://127.0.0.1:5000/db/api/forum/listUsers/ with {'order': 'desc', 'forum': 'forum1'} (GET)
+
+info: Request time was: 0.0078 sec
+
+info: Validating by requesting list of objects
+
+{'clear': True,
+ 'errors': True,
+ 'forum/create': True,
+ 'forum/listPosts': True,
+ 'forum/listThreads': True,
+ 'forum/listUsers': False,
+ 'post/create': True,
+ 'post/list': True,
+ 'post/remove': True,
+ 'post/restore': True,
+ 'post/update': True,
+ 'post/vote': True,
+ 'thread/close': True,
+ 'thread/create': True,
+ 'thread/list': True,
+ 'thread/listPosts': True,
+ 'thread/open': True,
+ 'thread/remove': True,
+ 'thread/restore': True,
+ 'thread/subscribe': True,
+ 'thread/unsubscribe': True,
+ 'thread/update': True,
+ 'thread/vote': True,
+ 'user/create': True,
+ 'user/follow': True,
+ 'user/listFollowers': True,
+ 'user/listFollowing': True,
+ 'user/listPosts': True,
+ 'user/unfollow': True,
+ 'user/updateProfile': True}
+29/30 tests passed
